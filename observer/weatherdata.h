@@ -3,7 +3,7 @@
 #include "weather.h"
 #include "subject.h"
 #include "observer.h"
-#include <vector>
+#include <set>
 #include <iostream>
 
 std::ostream& operator<<(std::ostream& os, const Weather& w);
@@ -11,11 +11,14 @@ std::ostream& operator<<(std::ostream& os, const Weather& w);
 class WeatherData : public Subject {
     private:
         Weather data;
-        std::vector<Observer*> observers;
-        void notifyObserver();
+        std::set<Observer*> observers;
     public:
         WeatherData();
+        WeatherData(Weather);
         ~WeatherData();
         void setData(Weather);
+        void registerObserver(Observer *o);
+        void removeObserver(Observer *o);
+        void notifyObservers();
 };
 #endif
