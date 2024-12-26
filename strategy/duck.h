@@ -14,3 +14,13 @@ class Duck {
         Duck() {};
     /* imagine generic  duck stuff here. */
 };
+
+class MallardDuck : public Duck {
+    public:
+        MallardDuck();
+};
+
+class RubberDuck : public Duck {
+    public:
+        RubberDuck();
+};

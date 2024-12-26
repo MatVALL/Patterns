@@ -15,3 +15,13 @@ void Duck::setQuackBehaviour(QuackBehaviour *qb) {
 void Duck::setFlyBehaviour(FlyBehaviour *fb) {
     this->flyBehaviour = fb;
 }
+
+RubberDuck::RubberDuck(): Duck() {
+    this->setFlyBehaviour(new FlyNotAllowed());
+    this->setQuackBehaviour(new MuteQuack());
+}
+
+MallardDuck::MallardDuck(): Duck() {
+    this->setFlyBehaviour(new FlyAllowed());
+    this->setQuackBehaviour(new Quack());
+}
