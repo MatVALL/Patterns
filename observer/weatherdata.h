@@ -1,18 +1,10 @@
 #ifndef __WEATHERDATA__H
 #define __WEATHERDATA__H
+#include "weather.h"
 #include "subject.h"
 #include "observer.h"
 #include <vector>
-#include <cstdint>
 #include <iostream>
-
-class Weather {
-    public:
-        int8_t temperature;
-        uint8_t humidity;
-        Weather(int8_t temperature, uint8_t humidity);
-        Weather();
-};
 
 std::ostream& operator<<(std::ostream& os, const Weather& w);
 
