@@ -26,16 +26,16 @@ void WeatherData::setData(Weather w) {
 }
 
 void WeatherData::notifyObservers() {
-    for (Observer *obs: observers) {
+    for (Observer<Weather> *obs: observers) {
         obs->update(data);
     }
 }
 
-void WeatherData::registerObserver(Observer *o) {
+void WeatherData::registerObserver(Observer<Weather> *o) {
     observers.insert(o);
 }
 
-void WeatherData::removeObserver(Observer *o) {
+void WeatherData::removeObserver(Observer<Weather> *o) {
     observers.erase(o);
 }
 

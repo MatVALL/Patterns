@@ -3,9 +3,10 @@
 
 #include "weather.h"
 
+template <typename T>
 class Observer {
     public:
-        virtual void update(Weather) = 0;
+        virtual void update(T) = 0;
         virtual ~Observer() = default;
 };
 

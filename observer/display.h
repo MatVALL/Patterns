@@ -2,7 +2,7 @@
 #define __DISPLAY__H
 #include "weatherdata.h"
 
-class ForecastDisplay: public Observer {
+class ForecastDisplay: public Observer<Weather> {
     private:
         Weather current_weather;
         Weather previous_weather;
@@ -14,7 +14,7 @@ class ForecastDisplay: public Observer {
         ForecastDisplay(Weather w);
 };
 
-class SimpleDisplay: public Observer {
+class SimpleDisplay: public Observer<Weather> {
     private:
         Weather weather;
         void update(Weather);
