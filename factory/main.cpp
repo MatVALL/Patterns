@@ -1,17 +1,15 @@
 #include <iostream>
+#include <memory>
 #include "concretecreator.h"
 
 class Client {
-    FurnitureFactory *f;
-    Chair *c;
-    CoffeeTable *ct;
+    std::unique_ptr<FurnitureFactory> f;
+    std::unique_ptr<Chair> c;
+    std::unique_ptr<CoffeeTable> ct;
     public:
         Client(FurnitureFactory *f): f(f) {
         }
         ~Client() {
-            delete c;
-            delete ct;
-            delete f;
         }
         void makeRoom() {
             c = f->createChair();

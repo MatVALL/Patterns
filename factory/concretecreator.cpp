@@ -1,19 +1,22 @@
+#include <memory>
 #include "concretecreator.h"
 #include "concreteproduct.h"
 
-Chair * VictorianFurnitureFactory:: createChair()
+std::unique_ptr<Chair> VictorianFurnitureFactory:: createChair()
 {
-    return new VictorianChair();
+    return std::unique_ptr<Chair>(new VictorianChair());
 }
-CoffeeTable *VictorianFurnitureFactory::createCoffeeTable()
+std::unique_ptr<CoffeeTable> VictorianFurnitureFactory::createCoffeeTable()
 {
-    return new VictorianCoffeeTable();
+    return std::unique_ptr<CoffeeTable>(new VictorianCoffeeTable());
 }
-Chair * DesignFurnitureFactory:: createChair()
+
+std::unique_ptr<Chair> DesignFurnitureFactory:: createChair()
 {
-    return new DesignChair();
+    return std::unique_ptr<Chair>(new DesignChair());
 }
-CoffeeTable *DesignFurnitureFactory::createCoffeeTable()
+
+std::unique_ptr<CoffeeTable> DesignFurnitureFactory::createCoffeeTable()
 {
-    return new VictorianCoffeeTable();
+    return std::unique_ptr<CoffeeTable>(new DesignCoffeeTable());
 }
